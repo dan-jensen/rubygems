@@ -110,7 +110,7 @@ RSpec.describe "bundle install with install-time dependencies" do
         expect(err).to include(" net_b").
           and include("BUNDLER: Starting resolution").
           and include("BUNDLER: Finished resolution").
-          and include("Attempting to activate")
+          and include("Attempting to activate [net_b (1.0) (ruby)]")
       end
     end
   end
