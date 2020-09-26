@@ -104,6 +104,22 @@ RSpec.describe "bundle info" do
     end
   end
 
+  context "when gem has a reverse dependency" do
+    it "prints the details" do
+      bundle "info actionpack"
+
+      expect(out).to include("Reverse Dependencies:\n\t\trails (2.3.2) depends on actionpack (= 2.3.2)")
+    end
+  end
+
+  context "when gem has no reverse dependencies" do
+    it "prints a placeholder" do
+      bundle "info rails"
+
+      expect(out).to include("Reverse Dependencies:\n\t\t(none)")
+    end
+  end
+
   context "with a git repo in the Gemfile" do
     before :each do
       @git = build_git "foo", "1.0"
