@@ -116,7 +116,7 @@ RSpec.describe "bundle info" do
     it "prints a placeholder" do
       bundle "info rails"
 
-      expect(out).to include("Reverse Dependencies:\n\t\t(none)")
+      expect(out).to include("Reverse Dependencies: (none)")
     end
   end
 
