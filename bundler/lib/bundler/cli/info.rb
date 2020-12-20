@@ -67,8 +67,7 @@ module Bundler
       gem_info << "\tMailing List: #{metadata["mailing_list_uri"]}\n" if metadata.key?("mailing_list_uri")
       gem_info << "\tPath: #{spec.full_gem_path}\n"
       gem_info << "\tDefault Gem: yes\n" if spec.respond_to?(:default_gem?) && spec.default_gem?
-      gem_info << "\tReverse Dependencies: "
-      gem_info << gem_dependencies.empty? ? "(none)" : "\n\t\t#{gem_dependencies.join("\n\t\t")}"
+      gem_info << "\tReverse Dependencies: \n\t\t#{gem_dependencies.join("\n\t\t")}" unless gem_dependencies.empty?
       Bundler.ui.info gem_info
     end
 
