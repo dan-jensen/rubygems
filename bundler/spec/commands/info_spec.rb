@@ -113,7 +113,7 @@ RSpec.describe "bundle info" do
   end
 
   context "when gem has no reverse dependencies" do
-    it "prints a placeholder" do
+    it "excludes the reverse dependencies field from the output" do
       bundle "info rails"
 
       expect(out).not_to include("Reverse Dependencies:")
